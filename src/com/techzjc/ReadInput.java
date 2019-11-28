@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ReadInput {
     private Scanner scanner = new Scanner(System.in);
 
-    public String ReadString() {
+    public String readString() {
         String string;
         while (true) {
             try {
@@ -133,6 +133,61 @@ public class ReadInput {
             }
         }
         return inputtedDouble;
+    }
+
+    public long readLong() {
+        long l;
+        while (true) {
+            try {
+                System.out.print("Please input a long: ");
+                l = this.scanner.nextLong();
+                break;
+            } catch (Exception e) {
+                System.out.println("Error: Please input a valid Long!");
+                this.scanner.nextLine();
+            }
+        }
+        return l;
+    }
+
+    public long readLongBiggerThan(long number) {
+        long l;
+        while(true) {
+            try {
+                System.out.print("Please input a long bigger than " + number + ":");
+                l = this.scanner.nextLong();
+                if (l <= number) {
+                    System.out.println("Error: please input a long bigger than " + number);
+                    this.scanner.nextLine();
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error: Please input a valid long!");
+                this.scanner.nextLine();
+            }
+        }
+        return l;
+    }
+
+    public long readLongSmallerThan(long number) {
+        long l;
+        while(true) {
+            try {
+                System.out.print("Please input a long smaller than " + number + ":");
+                l = this.scanner.nextLong();
+                if (l >= number) {
+                    System.out.println("Error: please input a long smaller than " + number);
+                    this.scanner.nextLine();
+                } else {
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("Error: Please input a valid long!");
+                this.scanner.nextLine();
+            }
+        }
+        return l;
     }
 
     public boolean readBoolean() {
