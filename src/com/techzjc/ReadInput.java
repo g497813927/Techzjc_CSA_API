@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ReadInput {
     private Scanner scanner = new Scanner(System.in);
 
-    public String readString() {
+    public String ReadString() {
         String string;
         while (true) {
             try {
@@ -25,6 +25,39 @@ public class ReadInput {
         return string;
     }
 
+    public int[] readIntArrOfNumber(int num) {
+        if (num <= 0) {
+            return new int[]{0};
+        } else {
+            int integer[] = new int[num];
+            while (true) {
+                while(true) {
+                    try {
+                        System.out.print("Please input the first integer: ");
+                        integer[0] = this.scanner.nextInt();
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Error: Please input a valid integer!");
+                        this.scanner.nextLine();
+                    }
+                }
+                for (int i = 1; i < integer.length; i++) {
+                    while (true) {
+                        try {
+                            System.out.print("Please input the next integer: ");
+                            integer[i] = this.scanner.nextInt();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Error: Please input a valid integer!");
+                            this.scanner.nextLine();
+                        }
+                    }
+                }
+                break;
+            }
+            return integer;
+        }
+    }
     public int readInt() {
         int integer;
         while (true) {
@@ -133,61 +166,6 @@ public class ReadInput {
             }
         }
         return inputtedDouble;
-    }
-
-    public long readLong() {
-        long l;
-        while (true) {
-            try {
-                System.out.print("Please input a long: ");
-                l = this.scanner.nextLong();
-                break;
-            } catch (Exception e) {
-                System.out.println("Error: Please input a valid Long!");
-                this.scanner.nextLine();
-            }
-        }
-        return l;
-    }
-
-    public long readLongBiggerThan(long number) {
-        long l;
-        while(true) {
-            try {
-                System.out.print("Please input a long bigger than " + number + ":");
-                l = this.scanner.nextLong();
-                if (l <= number) {
-                    System.out.println("Error: please input a long bigger than " + number);
-                    this.scanner.nextLine();
-                } else {
-                    break;
-                }
-            } catch (Exception e) {
-                System.out.println("Error: Please input a valid long!");
-                this.scanner.nextLine();
-            }
-        }
-        return l;
-    }
-
-    public long readLongSmallerThan(long number) {
-        long l;
-        while(true) {
-            try {
-                System.out.print("Please input a long smaller than " + number + ":");
-                l = this.scanner.nextLong();
-                if (l >= number) {
-                    System.out.println("Error: please input a long smaller than " + number);
-                    this.scanner.nextLine();
-                } else {
-                    break;
-                }
-            } catch (Exception e) {
-                System.out.println("Error: Please input a valid long!");
-                this.scanner.nextLine();
-            }
-        }
-        return l;
     }
 
     public boolean readBoolean() {
