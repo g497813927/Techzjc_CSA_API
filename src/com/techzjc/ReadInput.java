@@ -25,6 +25,42 @@ public class ReadInput {
         return string;
     }
 
+    public String[] readStringArrOfNumber(int num) {
+        if (num <= 0) {
+            return new String[]{"No number has been input!"};
+        } else {
+            String string[] = new String[num];
+            while (true) {
+                while(true) {
+                    try {
+                        System.out.print("Please input the first string: ");
+                        string[0] = this.scanner.nextLine();
+                        this.scanner.nextLine();
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e.toString());
+                        this.scanner.nextLine();
+                    }
+                }
+                for (int i = 1; i < string.length; i++) {
+                    while (true) {
+                        try {
+                            System.out.print("Please input the next string: ");
+                            string[0] = this.scanner.nextLine();
+                            this.scanner.nextLine();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Error: " + e.toString());
+                            this.scanner.nextLine();
+                        }
+                    }
+                }
+                break;
+            }
+            return string;
+        }
+    }
+
     public int[] readIntArrOfNumber(int num) {
         if (num <= 0) {
             return new int[]{0};
@@ -58,6 +94,7 @@ public class ReadInput {
             return integer;
         }
     }
+
     public int readInt() {
         int integer;
         while (true) {
