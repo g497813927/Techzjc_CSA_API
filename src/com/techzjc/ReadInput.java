@@ -150,6 +150,40 @@ public class ReadInput {
         return inputtedInteger;
     }
 
+    public double[] readDoubleArrOfNumber(int num) {
+        if (num <= 0) {
+            return new double[]{0};
+        } else {
+            double Double[] = new double[num];
+            while (true) {
+                while(true) {
+                    try {
+                        System.out.print("Please input the first double: ");
+                        Double[0] = this.scanner.nextDouble();
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Error: Please input a valid double!");
+                        this.scanner.nextLine();
+                    }
+                }
+                for (int i = 1; i < Double.length; i++) {
+                    while (true) {
+                        try {
+                            System.out.print("Please input the next double: ");
+                            Double[i] = this.scanner.nextDouble();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Error: Please input a valid double!");
+                            this.scanner.nextLine();
+                        }
+                    }
+                }
+                break;
+            }
+            return Double;
+        }
+    }
+
     public double readDouble() {
         double Double;
         while (true) {
