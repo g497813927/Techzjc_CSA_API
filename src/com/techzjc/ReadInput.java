@@ -65,8 +65,8 @@ public class ReadInput {
         } else {
             String string[][] = new String[x][y];
             while (true) {
-                for (int i = 0; i < string.length; i++) {
-                    for (int j = 0; j < string.length+1 ; j++) {
+                for (int i = 0; i < y; i++) {
+                    for (int j = 0; j < x ; j++) {
                         while (true) {
                             try {
                                 System.out.print("Please input the string: ");
@@ -126,8 +126,8 @@ public class ReadInput {
         } else {
             int integer[][] = new int[x][y];
             while (true) {
-                for (int i = 0; i < integer.length; i++) {
-                    for (int j = 0; j < integer.length+1 ; j++) {
+                for (int i = 0; i < y; i++) {
+                    for (int j = 0; j < x ; j++) {
                         while (true) {
                             try {
                                 System.out.print("Please input the integer: ");
@@ -242,8 +242,8 @@ public class ReadInput {
         } else {
             double Double[][] = new double[x][y];
             while (true) {
-                for (int i = 0; i < Double.length; i++) {
-                    for (int j = 0; j < Double.length+1 ; j++) {
+                for (int i = 0; i < y; i++) {
+                    for (int j = 0; j < x ; j++) {
                         while (true) {
                             try {
                                 System.out.print("Please input the double: ");
@@ -358,8 +358,8 @@ public class ReadInput {
         } else {
             boolean tOrFalse[][] = new boolean[x][y];
             while (true) {
-                for (int i = 0; i < tOrFalse.length; i++) {
-                    for (int j = 0; j < tOrFalse.length+1 ; j++) {
+                for (int i = 0; i < y; i++) {
+                    for (int j = 0; j < x ; j++) {
                         while (true) {
                             try {
                                 System.out.print("Please input the boolean: ");
