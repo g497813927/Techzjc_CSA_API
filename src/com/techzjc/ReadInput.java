@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * @author  Jiacheng Zhao   <a href="mailto:admin@techzjc.com">admin@techzjc.com</a>
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 public class ReadInput {
