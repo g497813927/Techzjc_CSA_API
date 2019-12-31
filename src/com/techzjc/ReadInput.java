@@ -59,17 +59,21 @@ public class ReadInput {
         }
     }
 
-    public String[][] readStringArrOfNumber(int x, int y) {
-        if (x <= 0 || y<=0) {
+    public String[][] readStringArrOfNumber(int row, int column) {
+        if (row <= 0 || column <=0) {
             return new String[1][1];
         } else {
-            String string[][] = new String[x][y];
+            String string[][] = new String[row][column];
             while (true) {
-                for (int i = 0; i < y; i++) {
-                    for (int j = 0; j < x ; j++) {
+                for (int i = 0; i < string.length; i++) {
+                    for (int j = 0; j < string[i].length ; j++) {
                         while (true) {
                             try {
-                                System.out.print("Please input the string: ");
+                                if (j==0){
+                                    System.out.print("Please input the first string: ");
+                                } else{
+                                    System.out.print("Please input the next string: ");
+                                }
                                 string[i][j] = this.scanner.nextLine();
                                 break;
                             } catch (Exception e) {
@@ -120,17 +124,21 @@ public class ReadInput {
         }
     }
 
-    public int[][] readIntArrOfNumber(int x, int y) {
-        if (x <= 0 || y<=0) {
+    public int[][] readIntArrOfNumber(int row, int column) {
+        if (row <= 0 || column<=0) {
             return new int[1][1];
         } else {
-            int integer[][] = new int[x][y];
+            int integer[][] = new int[row][column];
             while (true) {
-                for (int i = 0; i < y; i++) {
-                    for (int j = 0; j < x ; j++) {
+                for (int i = 0; i < integer.length; i++) {
+                    for (int j = 0; j < integer[i].length; j++) {
                         while (true) {
                             try {
-                                System.out.print("Please input the integer: ");
+                                if (j == 0) {
+                                    System.out.print("Please input the first integer: ");
+                                } else {
+                                    System.out.print("Please input the next integer: ");
+                                }
                                 integer[i][j] = this.scanner.nextInt();
                                 break;
                             } catch (Exception e) {
@@ -139,7 +147,9 @@ public class ReadInput {
                             }
                         }
                     }
-                    System.out.println("Start a new line!");
+                    if (i < integer.length - 1) {
+                        System.out.println("Start a new line!");
+                    }
                 }
                 break;
             }
@@ -236,29 +246,33 @@ public class ReadInput {
         }
     }
 
-    public double[][] readDoubleArrOfNumber(int x, int y) {
-        if (x <= 0 || y<=0) {
+    public double[][] readDoubleArrOfNumber(int row, int column) {
+        if (row <= 0 || column<=0) {
             return new double[1][1];
         } else {
-            double Double[][] = new double[x][y];
-            while (true) {
-                for (int i = 0; i < y; i++) {
-                    for (int j = 0; j < x ; j++) {
-                        while (true) {
-                            try {
-                                System.out.print("Please input the double: ");
-                                Double[i][j] = this.scanner.nextDouble();
-                                break;
-                            } catch (Exception e) {
-                                System.out.println("Error: Please input a valid double!");
-                                this.scanner.nextLine();
+            double Double[][] = new double[row][column];
+            for (int i = 0; i < Double.length ; i++) {
+                for (int j = 0; j < Double[i].length ; j++) {
+                    while (true) {
+                        try {
+                            if (j == 0) {
+                                System.out.print("Please input the first double: ");
+                            } else {
+                                System.out.print("Please input the next double: ");
                             }
+                            Double[i][j] = this.scanner.nextDouble();
+                            break;
+                        } catch (Exception e) {
+                            System.out.println("Error: Please input a valid double!");
+                            this.scanner.nextLine();
                         }
                     }
+                }
+                if (i < Double.length - 1) {
                     System.out.println("Start a new line!");
                 }
-                break;
             }
+
             return Double;
         }
     }
@@ -352,17 +366,21 @@ public class ReadInput {
         }
     }
 
-    public boolean[][] readBooleanArrOfNumber(int x, int y) {
-        if (x <= 0 || y<=0) {
+    public boolean[][] readBooleanArrOfNumber(int row, int column) {
+        if (row <= 0 || column<=0) {
             return new boolean[1][1];
         } else {
-            boolean tOrFalse[][] = new boolean[x][y];
+            boolean tOrFalse[][] = new boolean[row][column];
             while (true) {
-                for (int i = 0; i < y; i++) {
-                    for (int j = 0; j < x ; j++) {
+                for (int i = 0; i < tOrFalse.length; i++) {
+                    for (int j = 0; j < tOrFalse[i].length ; j++) {
                         while (true) {
                             try {
-                                System.out.print("Please input the boolean: ");
+                                if (j==0){
+                                    System.out.print("Please input the first boolean: ");
+                                } else{
+                                System.out.print("Please input the next boolean: ");
+                                }
                                 tOrFalse[i][j] = this.scanner.nextBoolean();
                                 break;
                             } catch (Exception e) {
@@ -371,7 +389,9 @@ public class ReadInput {
                             }
                         }
                     }
-                    System.out.println("Start a new line!");
+                    if (i<tOrFalse.length) {
+                        System.out.println("Start a new line!");
+                    }
                 }
                 break;
             }
@@ -392,6 +412,83 @@ public class ReadInput {
             }
         }
         return isTrue;
+    }
+
+    public char readChar() {
+        char character;
+        while (true){
+            try {
+                System.out.print("Please input a character: ");
+                String temp = this.scanner.nextLine();
+                if (temp.length()>1){
+                    System.out.println("Error: Please input a valid character(Only one)!");
+                }else{
+                    character = temp.charAt(0);
+                    break;
+                }
+
+            } catch (Exception e){
+                System.out.println("Error: Please input a valid character!");
+            }
+        }
+        return character;
+    }
+
+    public char[] readCharArrOfNumber(int x){
+        char[] character = new char[x];
+        for (int i = 0; i < character.length ; i++) {
+            while (true){
+                try {
+                    if (i == 0) {
+                        System.out.print("Please input the first character: ");
+                    }else{
+                        System.out.print("Please input the second character: ");
+                    }
+                    String temp = this.scanner.nextLine();
+                    if (temp.length()>1){
+                        System.out.println("Error: Please input a valid character(Only one)!");
+                    }else{
+                        character[i] = temp.charAt(0);
+                        break;
+                    }
+
+                } catch (Exception e){
+                    System.out.println("Error: Please input a valid character!");
+                }
+            }
+        }
+        return character;
+    }
+
+    public char[][] readCharArrOfNumber(int row, int column){
+        char[][] character = new char[row][column];
+        for (int i = 0; i < character.length ; i++) {
+            for (int j = 0; j < character[i].length ; j++) {
+                while (true){
+                    try {
+                        if (j == 0) {
+                            System.out.print("Please input the first character: ");
+                        }else{
+                            System.out.print("Please input the second character: ");
+                        }
+                        String temp = this.scanner.nextLine();
+                        if (temp.length()>1){
+                            System.out.println("Error: Please input a valid character(Only one)!");
+                        }else{
+                            character[i][j] = temp.charAt(0);
+                            break;
+                        }
+
+                    } catch (Exception e){
+                        System.out.println("Error: Please input a valid character!");
+                    }
+                }
+            }
+            if (i<character.length){
+                System.out.println("Start a new line!");
+            }
+        }
+        return character;
     }
 
     @Override
